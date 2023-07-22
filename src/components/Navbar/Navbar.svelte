@@ -2,6 +2,7 @@
 	import Container from "../Container.svelte";
 	import Logo from "./Logo.svelte";
 	import Search from './Search.svelte';
+	import UserMenu from './UserMenu.svelte';
 </script>
 
 <svelte>
@@ -11,6 +12,7 @@
 				<div class="flex flex-row items-center justify-between gap-3 md:gap-0">
 					<Logo />
 					<Search />
+					<UserMenu />
 				</div>
 			</Container>
 		</div>

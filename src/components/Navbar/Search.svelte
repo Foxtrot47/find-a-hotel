@@ -1,22 +1,23 @@
+<script>
+	import Fa from 'svelte-fa';
+	import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+</script>
+
 <svelte>
 	<div
-		class="border-[1px] w-full cursor-pointer rounded-full py-2 shadow-sm transition hover:shadow-md md:w-auto"
+		class="w-full cursor-pointer rounded-full border-[1px] py-2 shadow-sm transition hover:shadow-md md:w-auto"
 	>
-        <div class="flex flex-row items-center justify-between">
-            <div class="text-sm font-semibold px-6">
-                Anywhere
-            </div>
-            <div class="hidden sm:block text-sm font-semibold px-6 border-x-[1px] flex-1 text-center">
-                Any Week
-            </div>
-            <div class="text-sm pl-6 pr-2 text-gray-600 flex flex-row items-center gap-3">
-                <div class="hidden sm:block">
-                    Add Guests
+		<div class="flex flex-row items-center justify-between">
+			<div class="px-6 text-sm font-semibold">Anywhere</div>
+			<div class="hidden flex-1 border-x-[1px] px-6 text-center text-sm font-semibold sm:block">
+				Any Week
+			</div>
+			<div class="flex flex-row items-center gap-3 pl-6 pr-2 text-sm text-gray-600">
+				<div class="hidden sm:block">Add Guests</div>
+				<div class="rounded-full bg-rose-500 p-2 text-white">
+                    <Fa icon={faMagnifyingGlass} />
                 </div>
-                <div class="p-2 bg-rose-500 rounded-full text-white">
-                    
-                </div>
-            </div>
-        </div>
-    </div>  
+			</div>
+		</div>
+	</div>
 </svelte>
