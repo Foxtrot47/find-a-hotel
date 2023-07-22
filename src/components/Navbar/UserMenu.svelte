@@ -3,12 +3,16 @@
 	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import Avatar from '../Avatar.svelte';
     import MenuItem from './MenuItem.svelte';
+	import { ModalOpened } from '../../stores/RegisterModal';
 
 	let isOpen = false;
 
 	const toggleOpen = () => {
 		isOpen = !isOpen;
 	};
+	function OpenRegister() {
+        ModalOpened.set(true);
+    }
 </script>
 
 <svelte>
@@ -38,7 +42,7 @@
 			>
             <div class="flex flex-col cursor-pointer">
                 <MenuItem onClick={() => {}} label="Login" />
-                <MenuItem onClick={() => {}} label="Sign up" />
+                <MenuItem onClick={OpenRegister} label="Sign up" />
             </div>
             </div>  
 		{/if}
