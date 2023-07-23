@@ -2,7 +2,7 @@
 	import Fa from 'svelte-fa';
 	import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 	export let label: string;
-	export let onClick: () => void;
+	export let onClick: (event: Event) => void;
 	export let disabled = false;
 	export let outline = false;
 	export let small = false;

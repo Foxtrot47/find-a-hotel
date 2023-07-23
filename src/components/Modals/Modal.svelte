@@ -4,8 +4,8 @@
 	import Button from '../Button.svelte';
 
 	export let isOpen = false;
-	export let onClose = () => {};
-	export let onSubmit = () => {};
+	export let onClose: () => void;
+	export let onSubmit: (e: Event) => void;
 	export let title = '';
 	export let actionLabel = '';
 	export let disabled = false;
@@ -27,15 +27,14 @@
 			onClose();
 		}, 300);
 	};
-	const handleSubmit = () => {
+	const handleSubmit = (event: Event) => {
 		if (disabled) return;
-		onSubmit();
+		onSubmit(event);
 	};
 	const handleSecondaryAction = () => {
 		if (disabled || !secondaryAction) return;
 		secondaryAction();
 	};
-
 	showModal = isOpen;
 </script>
 
