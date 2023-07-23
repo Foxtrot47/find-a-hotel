@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Container from "../Container.svelte";
-	import Logo from "./Logo.svelte";
+	import Container from '../Container.svelte';
+	import Logo from './Logo.svelte';
 	import Search from './Search.svelte';
 	import UserMenu from './UserMenu.svelte';
 </script>

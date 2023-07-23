@@ -2,7 +2,7 @@
 	import Fa from 'svelte-fa';
 	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import Avatar from '../Avatar.svelte';
-    import MenuItem from './MenuItem.svelte';
+	import MenuItem from './MenuItem.svelte';
 	import { ModalOpened } from '../../stores/RegisterModal';
 
 	let isOpen = false;
@@ -11,8 +11,8 @@
 		isOpen = !isOpen;
 	};
 	function OpenRegister() {
-        ModalOpened.set(true);
-    }
+		ModalOpened.set(true);
+	}
 </script>
 
 <svelte>
@@ -40,11 +40,11 @@
 			<div
 				class="absolute right-0 top-12 w-[40vw] overflow-hidden rounded-xl bg-white text-sm shadow-md md:w-3/4"
 			>
-            <div class="flex flex-col cursor-pointer">
-                <MenuItem onClick={() => {}} label="Login" />
-                <MenuItem onClick={OpenRegister} label="Sign up" />
-            </div>
-            </div>  
+				<div class="flex cursor-pointer flex-col">
+					<MenuItem onClick={() => {}} label="Login" />
+					<MenuItem onClick={OpenRegister} label="Sign up" />
+				</div>
+			</div>
 		{/if}
 	</div>
 </svelte>

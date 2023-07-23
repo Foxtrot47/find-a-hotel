@@ -15,8 +15,8 @@
 			<div class="flex flex-row items-center gap-3 pl-6 pr-2 text-sm text-gray-600">
 				<div class="hidden sm:block">Add Guests</div>
 				<div class="rounded-full bg-rose-500 p-2 text-white">
-                    <Fa icon={faMagnifyingGlass} />
-                </div>
+					<Fa icon={faMagnifyingGlass} />
+				</div>
 			</div>
 		</div>
 	</div>

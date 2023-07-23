@@ -13,12 +13,12 @@
 	export let secondaryActionLabel = '';
 
 	let showModal: boolean;
-	$:{
+	$: {
 		// Add a tiny delay to make the opening animation work properly
 		setTimeout(() => {
-			showModal = isOpen
+			showModal = isOpen;
 		}, 0);
-	};
+	}
 
 	const handleClose = () => {
 		if (disabled) return;
@@ -66,7 +66,7 @@
 					</div>
 					<!-- Body -->
 					<div class="relative flex-auto p-6">
-						<slot name="body" ></slot>
+						<slot name="body" />
 					</div>
 					<!-- Footer -->
 					<div class="flex flex-col gap-2 p-6">
@@ -81,7 +81,7 @@
 							{/if}
 							<Button {disabled} label={actionLabel} onClick={handleSubmit} />
 						</div>
-						<slot name="footer"></slot>
+						<slot name="footer" />
 					</div>
 				</div>
 			</div>
