@@ -20,6 +20,9 @@ dependencies:
   svelte-forms-lib:
     specifier: ^2.0.1
     version: 2.0.1
+  svelte-toasts:
+    specifier: ^1.1.2
+    version: 1.1.2
   yup:
     specifier: ^1.2.0
     version: 1.2.0
@@ -2167,6 +2170,10 @@ packages:
       svelte: 4.1.1
       typescript: 5.1.6
     dev: true
+
+  /svelte-toasts@1.1.2:
+    resolution: {integrity: sha512-m+yL4eEKXyJoyjTYaH1j1GFwF0Pi8YDqnVfwWPDmwi4712iZesv+TNCmToSNlav3R5Vkmc8ZBRkT8DOcu3sywQ==}
+    dev: false
 
   /svelte@4.1.1:
     resolution: {integrity: sha512-Enick5fPFISLoVy0MFK45cG+YlQt6upw8skEK9zzTpJnH1DqEv8xOZwizCGSo3Q6HZ7KrZTM0J18poF7aQg5zw==}

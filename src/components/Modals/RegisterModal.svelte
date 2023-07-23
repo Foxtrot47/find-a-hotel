@@ -4,6 +4,7 @@
 	import { createForm } from 'svelte-forms-lib';
 	import * as yup from 'yup';
 	import { writable } from 'svelte/store';
+	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';
 
 	import Modal from './Modal.svelte';
 	import Heading from '../Heading.svelte';
@@ -27,8 +28,28 @@
 			name: yup.string().required(),
 			password: yup.string().min(8, 'Password is too short - should be 8 chars minimum.')
 		}),
-		onSubmit: (values: { name: string; email: string; password: string }) => {
-			alert(JSON.stringify(values));
+		onSubmit: async (values: { name: string; email: string; password: string }) => {
+			try {
+				const apiResponse = await fetch('/api/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(values)
+				});
+				if (apiResponse.ok === false) {
+					throw new Error();
+				}
+			} catch (e) {
+				toasts.add({
+					title: 'Error occured',
+					description: 'Please try again later',
+					duration: 5000,
+					placement: 'top-right',
+					type: 'error',
+					theme: 'dark'
+				});
+			}
 		}
 	});
 </script>
@@ -74,8 +95,8 @@
 			</div>
 			<div class="mt-3 flex flex-col gap-4" slot="footer">
 				<hr />
-				<Button outline label="Continue with Google" icon={faGoogle} onClick={() => {}} />
-				<Button outline label="Continue with Github" icon={faGithub} onClick={() => {}} />
+				<Button outline label="Continue with Google" icon={faGoogle} onClick={RegisterClosed} />
+				<Button outline label="Continue with Github" icon={faGithub} onClick={RegisterClosed} />
 				<div class="mt-4 text-center font-light text-neutral-500">
 					<div class="flex flex-row items-center justify-center gap-2">
 						<div>Already have an account?</div>
