@@ -30,6 +30,7 @@ export const handle = SvelteKitAuth({
 				password: { label: 'password', type: 'password' }
 			},
 			async authorize(credentials) {
+				
 				if (!credentials?.email || !credentials?.password) {
 					return null;
 				}

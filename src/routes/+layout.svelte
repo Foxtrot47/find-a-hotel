@@ -5,11 +5,13 @@
 	import Navbar from '../components/Navbar/Navbar.svelte';
 	import RegisterModal from '../components/Modals/RegisterModal.svelte';
 	import { ToastContainer, FlatToast } from 'svelte-toasts';
+	import LoginModal from '../components/Modals/LoginModal.svelte';
 </script>
 
 <ToastContainer placement="bottom-right" let:data>
 	<FlatToast {data} />
 </ToastContainer>
+<LoginModal />
 <RegisterModal />
 <Navbar />
 <slot />

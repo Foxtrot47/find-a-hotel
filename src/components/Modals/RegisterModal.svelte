@@ -9,13 +9,13 @@
 	import Modal from './Modal.svelte';
 	import Heading from '../Heading.svelte';
 	import Input from '../Inputs/Input.svelte';
-	import { ModalOpened } from '../../stores/RegisterModal';
+	import { RegisterModalOpened } from '../../stores';
 	import Button from '../Button.svelte';
 
 	let isLoading = false;
 
 	function RegisterClosed() {
-		ModalOpened.set(false);
+		RegisterModalOpened.set(false);
 	}
 	const { form, errors, handleSubmit } = createForm({
 		initialValues: {
@@ -59,7 +59,7 @@
 		<Modal
 			actionLabel="Continue"
 			disabled={isLoading}
-			isOpen={$ModalOpened}
+			isOpen={$RegisterModalOpened}
 			onClose={RegisterClosed}
 			onSubmit={handleSubmit}
 			title="Register"
