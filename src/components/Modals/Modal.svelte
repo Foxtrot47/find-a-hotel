@@ -66,7 +66,7 @@
 					</div>
 					<!-- Body -->
 					<div class="relative flex-auto p-6">
-						<slot title="body" />
+						<slot name="body" ></slot>
 					</div>
 					<!-- Footer -->
 					<div class="flex flex-col gap-2 p-6">
@@ -81,6 +81,7 @@
 							{/if}
 							<Button {disabled} label={actionLabel} onClick={handleSubmit} />
 						</div>
+						<slot name="footer"></slot>
 					</div>
 				</div>
 			</div>

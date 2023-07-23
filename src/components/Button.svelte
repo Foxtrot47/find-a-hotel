@@ -13,7 +13,7 @@
 	<button
 		{disabled}
 		on:click={onClick}
-		class={`w-full relative rounded-lg transition hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70
+		class={`w-full relative rounded-lg transition hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70 justify-center flex
             ${outline ? 'bg-white' : 'bg-rose-500'}
             ${outline ? 'border-black' : 'border-rose-500'}
             ${outline ? 'text-black' : 'text-white'}
@@ -24,7 +24,7 @@
         `}
 	>
 		{#if icon}
-			<Fa class="absolute left-4 top-3" {icon} />
+			<Fa class="absolute left-4 self-center" {icon} />
 		{/if}
 		{label}
 	</button>
