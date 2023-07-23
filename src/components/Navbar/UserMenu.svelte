@@ -1,10 +1,14 @@
-<script>
+<script lang="ts">
+	import type { User } from '@prisma/client';
+
 	import Fa from 'svelte-fa';
 	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import Avatar from '../Avatar.svelte';
 	import MenuItem from './MenuItem.svelte';
-	import { LoginModalOpened,RegisterModalOpened } from '../../stores';
+	import { LoginModalOpened, RegisterModalOpened } from '../../stores';
+	import { signOut } from '@auth/sveltekit/client';
 
+	export let currentUser: User | null = null;
 	let isOpen = false;
 
 	const toggleOpen = () => {
@@ -43,10 +47,22 @@
 			<div
 				class="absolute right-0 top-12 w-[40vw] overflow-hidden rounded-xl bg-white text-sm shadow-md md:w-3/4"
 			>
-				<div class="flex cursor-pointer flex-col">
-					<MenuItem onClick={OpenLogin} label="Login" />
-					<MenuItem onClick={OpenRegister} label="Sign up" />
-				</div>
+				{#if !currentUser}
+					<div class="flex cursor-pointer flex-col">
+						<MenuItem onClick={OpenLogin} label="Login" />
+						<MenuItem onClick={OpenRegister} label="Sign up" />
+					</div>
+				{:else}
+					<div class="flex cursor-pointer flex-col">
+						<MenuItem onClick={() => {}} label="My trips" />
+						<MenuItem onClick={() => {}} label="My favourites" />
+						<MenuItem onClick={() => {}} label="My reservations" />
+						<MenuItem onClick={() => {}} label="My properties" />
+						<MenuItem onClick={() => {}} label="Airbnb my home" />
+						<hr />
+						<MenuItem onClick={signOut} label="Logout" />
+					</div>
+				{/if}
 			</div>
 		{/if}
 	</div>
