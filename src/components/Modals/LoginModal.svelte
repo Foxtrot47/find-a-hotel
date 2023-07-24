@@ -143,7 +143,7 @@
 			</div>
 			<div class="mt-3 flex flex-col gap-4" slot="footer">
 				<hr />
-				<Button outline label="Continue with Google" icon={faGoogle} onClick={LoginClosed} />
+				<Button outline label="Continue with Google" icon={faGoogle} onClick={() => signIn("google")} />
 				<Button outline label="Continue with Github" icon={faGithub} onClick={() => signIn("github")} />
 				<div class="mt-4 text-center font-light text-neutral-500">
 					<div class="flex flex-row items-center justify-center gap-2">
