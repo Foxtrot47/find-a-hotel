@@ -39,7 +39,7 @@
 			>
 				<Fa icon={faBars} />
 				<div class="hidden md:block">
-					<Avatar />
+					<Avatar src={currentUser?.image}/>
 				</div>
 			</div>
 		</div>
