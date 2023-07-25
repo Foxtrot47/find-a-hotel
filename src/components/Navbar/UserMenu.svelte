@@ -4,7 +4,7 @@
 	import Icon from '@iconify/svelte';
 	import Avatar from '../Avatar.svelte';
 	import MenuItem from './MenuItem.svelte';
-	import { LoginModalOpened, RegisterModalOpened } from '../../stores';
+	import { LoginModalOpened, RegisterModalOpened , RentModalOpened} from '../../stores';
 	import { signOut } from '@auth/sveltekit/client';
 
 	export let currentUser: User | null = null;
@@ -19,16 +19,24 @@
 	function OpenLogin() {
 		LoginModalOpened.set(true);
 	}
+	function onRent() {
+		if (!currentUser) {
+			return OpenLogin();
+		}
+		RentModalOpened.set(true);
+	}
+	
 </script>
 
 <svelte>
 	<div class="relative">
 		<div class="flex flex-row items-center gap-3">
-			<div
+			<button
 				class="hidden cursor-pointer rounded-full px-3 py-3 text-sm font-semibold transition hover:bg-neutral-100 md:block"
+				on:click={onRent}
 			>
 				Airbnb your home
-			</div>
+			</button>
 			<div
 				class="flex cursor-pointer flex-row items-center gap-3 rounded-full border-[1px] border-neutral-200 p-4 transition hover:shadow-md md:px-2 md:py-1"
 				on:click={toggleOpen}

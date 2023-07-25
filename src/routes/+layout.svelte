@@ -7,6 +7,7 @@
 	import { ToastContainer, FlatToast } from 'svelte-toasts';
 	import LoginModal from '../components/Modals/LoginModal.svelte';
 	import type { PageData } from './$types';
+	import RentModal from '../components/Modals/RentModal.svelte';
 
 	export let data: PageData;
 </script>
@@ -16,5 +17,6 @@
 </ToastContainer>
 <LoginModal />
 <RegisterModal />
+<RentModal />
 <Navbar currentUser={data.currentUser} />
 <slot />
