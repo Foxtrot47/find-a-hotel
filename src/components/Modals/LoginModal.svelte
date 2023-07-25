@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Fa from 'svelte-fa';
-	import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
+	import Icon from '@iconify/svelte';
 	import { createForm } from 'svelte-forms-lib';
 	import * as yup from 'yup';
 	import { writable } from 'svelte/store';
@@ -64,51 +63,6 @@
 	});
 </script>
 
-<svelte>
-	<form on:submit={handleSubmit}>
-		<Modal
-			actionLabel="Continue"
-			disabled={isLoading}
-			isOpen={$LoginModalOpened}
-			onClose={LoginClosed}
-			onSubmit={handleSubmit}
-			title="Login"
-		>
-			<div class="flex flex-col gap-4" slot="body">
-				<Heading title="Welcome back" subTitle="Login to your account!" />
-				<Input
-					id="email"
-					label="Email"
-					disabled={isLoading}
-					type="email"
-					bind:value={$form.email}
-					required={true}
-					error={$errors.email}
-				/>
-				<Input
-					id="password"
-					label="Password"
-					disabled={isLoading}
-					type="password"
-					bind:value={$form.password}
-					required={true}
-					error={$errors.password}
-				/>
-			</div>
-			<div class="mt-3 flex flex-col gap-4" slot="footer">
-				<hr />
-				<Button outline label="Continue with Google" icon={faGoogle} onClick={LoginClosed} />
-				<Button outline label="Continue with Github" icon={faGithub} onClick={LoginClosed} />
-				<div class="mt-4 text-center font-light text-neutral-500">
-					<div class="flex flex-row items-center justify-center gap-2">
-						<div>Already have an account?</div>
-						<div class="cursor-pointer text-neutral-800 hover:underline">Log in</div>
-					</div>
-				</div>
-			</div>
-		</Modal>
-	</form>
-</svelte>
 
 <svelte>
 	<form on:submit={handleSubmit}>
@@ -143,8 +97,8 @@
 			</div>
 			<div class="mt-3 flex flex-col gap-4" slot="footer">
 				<hr />
-				<Button outline label="Continue with Google" icon={faGoogle} onClick={() => signIn("google")} />
-				<Button outline label="Continue with Github" icon={faGithub} onClick={() => signIn("github")} />
+				<Button outline label="Continue with Google" icon="devicon:google" onClick={() => signIn("google")} />
+				<Button outline label="Continue with Github" icon="devicon:github" onClick={() => signIn("github")} />
 				<div class="mt-4 text-center font-light text-neutral-500">
 					<div class="flex flex-row items-center justify-center gap-2">
 						<div>Already have an account?</div>

@@ -1,12 +1,11 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
-	import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+	import Icon from '@iconify/svelte';
 	export let label: string;
 	export let onClick: (event: Event) => void;
 	export let disabled = false;
 	export let outline = false;
 	export let small = false;
-	export let icon: IconDefinition | null = null;
+	export let icon: string = "";
 </script>
 
 <svelte>
@@ -24,7 +23,7 @@
         `}
 	>
 		{#if icon}
-			<Fa class="absolute left-4 self-center" {icon} />
+			<Icon class="absolute left-4 self-center" {icon} />
 		{/if}
 		{label}
 	</button>

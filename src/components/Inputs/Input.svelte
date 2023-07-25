@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
-	import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+	import Icon from '@iconify/svelte';
 
 	export let id = '';
 	export let label: string | undefined = undefined;
@@ -19,7 +18,7 @@
 <svelte>
 	<div class="relative w-full">
 		{#if formatPrice}
-			<Fa class="absolute left-2 top-5 text-neutral-700" icon={faDollarSign} />
+			<Icon class="absolute left-2 top-5 text-neutral-700" icon="mdi:dollar" />
 		{/if}
 
 		<input

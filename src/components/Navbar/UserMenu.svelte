@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { User } from '@prisma/client';
 
-	import Fa from 'svelte-fa';
-	import { faBars } from '@fortawesome/free-solid-svg-icons';
+	import Icon from '@iconify/svelte';
 	import Avatar from '../Avatar.svelte';
 	import MenuItem from './MenuItem.svelte';
 	import { LoginModalOpened, RegisterModalOpened } from '../../stores';
@@ -37,7 +36,7 @@
 				role="button"
 				tabindex="0"
 			>
-				<Fa icon={faBars} />
+				<Icon icon="fa6-solid:bars" />
 				<div class="hidden md:block">
 					<Avatar src={currentUser?.image}/>
 				</div>

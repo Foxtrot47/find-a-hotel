@@ -1,6 +1,5 @@
 <script>
-	import Fa from 'svelte-fa';
-	import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+	import Icon from '@iconify/svelte';
 </script>
 
 <svelte>
@@ -15,7 +14,7 @@
 			<div class="flex flex-row items-center gap-3 pl-6 pr-2 text-sm text-gray-600">
 				<div class="hidden sm:block">Add Guests</div>
 				<div class="rounded-full bg-rose-500 p-2 text-white">
-					<Fa icon={faMagnifyingGlass} />
+					<Icon icon="fa6-solid:magnifying-glass" />
 				</div>
 			</div>
 		</div>

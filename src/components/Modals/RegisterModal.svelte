@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
-	import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
+	import Icon from '@iconify/svelte';
 	import { createForm } from 'svelte-forms-lib';
 	import * as yup from 'yup';
 	import { writable } from 'svelte/store';
@@ -96,8 +95,8 @@
 			</div>
 			<div class="mt-3 flex flex-col gap-4" slot="footer">
 				<hr />
-				<Button outline label="Continue with Google" icon={faGoogle} onClick={() => signIn("google")} />
-				<Button outline label="Continue with Github" icon={faGithub} onClick={() => signIn("github")} />
+				<Button outline label="Continue with Google" icon="devicon:google" onClick={() => signIn("google")} />
+				<Button outline label="Continue with Github" icon="devicon:github" onClick={() => signIn("github")} />
 				<div class="mt-4 text-center font-light text-neutral-500">
 					<div class="flex flex-row items-center justify-center gap-2">
 						<div>Already have an account?</div>

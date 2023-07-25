@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
-	import { faClose } from '@fortawesome/free-solid-svg-icons';
+    import Icon from '@iconify/svelte';
 	import Button from '../Button.svelte';
 
 	export let isOpen = false;
@@ -59,7 +58,7 @@
 							class="absolute left-9 border-0 p-1 transition hover:opacity-70"
 							on:click={handleClose}
 						>
-							<Fa icon={faClose} />
+							<Icon icon="material-symbols:close" />
 						</button>
 						<div class="text-lg font-semibold">{title}</div>
 					</div>
