@@ -5,6 +5,7 @@
 	import Logo from './Logo.svelte';
 	import Search from './Search.svelte';
 	import UserMenu from './UserMenu.svelte';
+	import Categories from './Categories.svelte';
 
 	export let currentUser: User | null = null;
 </script>
@@ -20,5 +21,6 @@
 				</div>
 			</Container>
 		</div>
+		<Categories />
 	</div>
 </svelte>
