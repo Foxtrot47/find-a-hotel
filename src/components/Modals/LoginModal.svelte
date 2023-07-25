@@ -12,6 +12,7 @@
 	import Input from '../Inputs/Input.svelte';
 	import { LoginModalOpened, RegisterModalOpened } from '../../stores/index';
 	import Button from '../Button.svelte';
+	import RegisterModal from './RegisterModal.svelte';
 
 	let isLoading = false;
 
@@ -37,8 +38,8 @@
 			const result = await response?.json();
 			isLoading = false;
 
-			// Wierd way to check auth status 
-			// because auth.js is piece of shit and doesn't 
+			// Wierd way to check auth status
+			// because auth.js is piece of shit and doesn't
 			// respond properly
 			const regex = /\/auth\/error/;
 			if (regex.test(result.url)) {
@@ -58,11 +59,13 @@
 				LoginClosed();
 				goto('/');
 			}
-
 		}
 	});
+	const openRegisterModal = () => {
+		LoginModalOpened.set(false);
+		RegisterModalOpened.set(true);
+	};
 </script>
-
 
 <svelte>
 	<form on:submit={handleSubmit}>
@@ -97,12 +100,24 @@
 			</div>
 			<div class="mt-3 flex flex-col gap-4" slot="footer">
 				<hr />
-				<Button outline label="Continue with Google" icon="devicon:google" onClick={() => signIn("google")} />
-				<Button outline label="Continue with Github" icon="devicon:github" onClick={() => signIn("github")} />
+				<Button
+					outline
+					label="Continue with Google"
+					icon="devicon:google"
+					onClick={() => signIn('google')}
+				/>
+				<Button
+					outline
+					label="Continue with Github"
+					icon="devicon:github"
+					onClick={() => signIn('github')}
+				/>
 				<div class="mt-4 text-center font-light text-neutral-500">
 					<div class="flex flex-row items-center justify-center gap-2">
-						<div>Already have an account?</div>
-						<div class="cursor-pointer text-neutral-800 hover:underline">Log in</div>
+						<div>First time using Airbnb?</div>
+						<button class="cursor-pointer text-neutral-800 hover:underline" on:click={openRegisterModal}
+							>Create an account</button
+						>
 					</div>
 				</div>
 			</div>

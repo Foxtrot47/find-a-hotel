@@ -8,7 +8,7 @@
 	import Modal from './Modal.svelte';
 	import Heading from '../Heading.svelte';
 	import Input from '../Inputs/Input.svelte';
-	import { RegisterModalOpened } from '../../stores';
+	import { LoginModalOpened, RegisterModalOpened } from '../../stores/index';
 	import Button from '../Button.svelte';
 	import { signIn } from '@auth/sveltekit/client';
 
@@ -52,6 +52,10 @@
 			}
 		}
 	});
+	const openLoginModal = () => {
+		RegisterModalOpened.set(false);
+		LoginModalOpened.set(true);
+	};
 </script>
 
 <svelte>
@@ -100,7 +104,7 @@
 				<div class="mt-4 text-center font-light text-neutral-500">
 					<div class="flex flex-row items-center justify-center gap-2">
 						<div>Already have an account?</div>
-						<div class="cursor-pointer text-neutral-800 hover:underline">Log in</div>
+						<button class="cursor-pointer text-neutral-800 hover:underline" on:click={openLoginModal}>Log in</button>
 					</div>
 				</div>
 			</div>
