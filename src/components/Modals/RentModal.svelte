@@ -13,12 +13,13 @@
 	import { RentModalOpened } from '../../stores/index';
 	import Button from '../Button.svelte';
 	import RegisterModal from './RegisterModal.svelte';
-	import { categoriesList } from "../Navbar/Categories";
-	import type { Category } from "../Navbar/Categories";
+	import { categoriesList } from '../Navbar/Categories';
+	import type { Category } from '../Navbar/Categories';
 	import CategoryInput from '../Inputs/CategoryInput.svelte';
+	import CountrySelect from '../Inputs/CountrySelect.svelte';
+	import type { CountrySelectValue } from '../Inputs/Countries';
 
 	let isLoading = false;
-	let selectedCategory: string;
 
 	enum STEPS {
 		CATEGORY = 0,
@@ -35,15 +36,15 @@
 	}
 	const { form, errors, handleSubmit } = createForm({
 		initialValues: {
-			category: "",
+			category: '',
 			location: null,
 			guestCount: 1,
 			roomCount: 1,
 			bathroomCount: 1,
-			imageSrc: "",
+			imageSrc: '',
 			price: 1,
-			title: "",
-			description: ""
+			title: '',
+			description: ''
 		},
 		onSubmit: async (data) => {}
 	});
@@ -67,25 +68,36 @@
 			disabled={isLoading}
 			isOpen={$RentModalOpened}
 			onClose={RentModalClosed}
-			onSubmit={handleSubmit}
+			onSubmit={onNext}
 			{secondaryActionLabel}
 			secondaryAction={currenStep === STEPS.CATEGORY ? undefined : onBack}
 			title="Airbnb your home!"
 		>
-			<div class="flex flex-col gap-8" slot="body">
-				<Heading title="Which of these best describes your place?" subTitle="Pick a category" />
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
-					{#each categoriesList as category}
-						<div class="col-span-1">
-							<CategoryInput 
-								onClick={(category) => {selectedCategory = category}}
-								selected={selectedCategory === category.label}
-								label={category.label}
-								icon={category.icon}
-							/>
+			<div slot="body">
+				{#if currenStep === STEPS.CATEGORY}
+					<div class="flex flex-col gap-8">
+						<Heading title="Which of these best describes your place?" subTitle="Pick a category" />
+						<div class="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
+							{#each categoriesList as category}
+								<div class="col-span-1">
+									<CategoryInput
+										onClick={(category) => {
+											$form.category = category;
+										}}
+										selected={$form.category === category.label}
+										label={category.label}
+										icon={category.icon}
+									/>
+								</div>
+							{/each}
 						</div>
-					{/each}
-				</div>
+					</div>
+				{:else if currenStep === STEPS.LOCATION}
+					<div class="flex flex-col gap-8">
+						<Heading title="Where's your place located?" subTitle="Help guests find you!" />
+						<CountrySelect bind:value={$form.location} />
+					</div>
+				{/if}
 			</div>
 		</Modal>
 	</form>

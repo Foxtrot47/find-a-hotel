@@ -4,7 +4,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter Variable']
+				sans: ['Inter Variable'],
+				emoji: ['Noto Color Emoji']
 			}
 		}
 	},

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '@fontsource-variable/inter';
+	import '@fontsource/noto-color-emoji/emoji.css';
 	import '../styles/app.css';
 	import Modal from '../components/Modals/Modal.svelte';
 	import Navbar from '../components/Navbar/Navbar.svelte';
