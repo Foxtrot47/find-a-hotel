@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Icon from '@iconify/svelte';
+	import Icon from '@iconify/svelte';
 	import Button from '../Button.svelte';
 
 	export let isOpen = false;
@@ -68,7 +68,7 @@
 					</div>
 					<!-- Footer -->
 					<div class="flex flex-col gap-2 p-6">
-						<div class="w-full flex flex-row items-center gap-4">
+						<div class="flex w-full flex-row items-center gap-4">
 							{#if secondaryActionLabel}
 								<Button
 									{disabled}

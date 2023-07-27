@@ -76,7 +76,7 @@
 			{#if currenStep === STEPS.CATEGORY}
 				<div class="flex flex-col gap-8">
 					<Heading title="Which of these best describes your place?" subTitle="Pick a category" />
-					<div class="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2 pr-2">
+					<div class="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto pr-2 md:grid-cols-2">
 						{#each categoriesList as category}
 							<div class="col-span-1">
 								<CategoryInput
