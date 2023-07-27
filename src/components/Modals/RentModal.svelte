@@ -61,44 +61,42 @@
 	$: secondaryActionLabel = currenStep === STEPS.CATEGORY ? undefined : 'Back';
 </script>
 
-<svelte>
-	<form on:submit={handleSubmit}>
-		<Modal
-			{actionLabel}
-			disabled={isLoading}
-			isOpen={$RentModalOpened}
-			onClose={RentModalClosed}
-			onSubmit={onNext}
-			{secondaryActionLabel}
-			secondaryAction={currenStep === STEPS.CATEGORY ? undefined : onBack}
-			title="Airbnb your home!"
-		>
-			<div slot="body">
-				{#if currenStep === STEPS.CATEGORY}
-					<div class="flex flex-col gap-8">
-						<Heading title="Which of these best describes your place?" subTitle="Pick a category" />
-						<div class="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
-							{#each categoriesList as category}
-								<div class="col-span-1">
-									<CategoryInput
-										onClick={(category) => {
-											$form.category = category;
-										}}
-										selected={$form.category === category.label}
-										label={category.label}
-										icon={category.icon}
-									/>
-								</div>
-							{/each}
-						</div>
+<form on:submit={handleSubmit}>
+	<Modal
+		{actionLabel}
+		disabled={isLoading}
+		isOpen={$RentModalOpened}
+		onClose={RentModalClosed}
+		onSubmit={onNext}
+		{secondaryActionLabel}
+		secondaryAction={currenStep === STEPS.CATEGORY ? undefined : onBack}
+		title="Airbnb your home!"
+	>
+		<div slot="body">
+			{#if currenStep === STEPS.CATEGORY}
+				<div class="flex flex-col gap-8">
+					<Heading title="Which of these best describes your place?" subTitle="Pick a category" />
+					<div class="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
+						{#each categoriesList as category}
+							<div class="col-span-1">
+								<CategoryInput
+									onClick={(category) => {
+										$form.category = category;
+									}}
+									selected={$form.category === category.label}
+									label={category.label}
+									icon={category.icon}
+								/>
+							</div>
+						{/each}
 					</div>
-				{:else if currenStep === STEPS.LOCATION}
-					<div class="flex flex-col gap-8">
-						<Heading title="Where's your place located?" subTitle="Help guests find you!" />
-						<CountrySelect bind:value={$form.location} />
-					</div>
-				{/if}
-			</div>
-		</Modal>
-	</form>
-</svelte>
+				</div>
+			{:else if currenStep === STEPS.LOCATION}
+				<div class="flex flex-col gap-8">
+					<Heading title="Where's your place located?" subTitle="Help guests find you!" />
+					<CountrySelect bind:value={$form.location} />
+				</div>
+			{/if}
+		</div>
+	</Modal>
+</form>
