@@ -20,6 +20,7 @@
 	import type { CountrySelectValue } from '../Inputs/Countries';
 	import Map from '../Map.svelte';
 	import Counter from '../Inputs/Counter.svelte';
+	import ImageUpload from '../Inputs/ImageUpload.svelte';
 
 	let isLoading = false;
 
@@ -122,6 +123,14 @@
 						subTitle="How many bathrooms do you have?"
 						bind:value={$form.bathroomCount}
 					/>
+				</div>
+			{:else if currenStep == STEPS.IMAGES}
+				<div class="flex flex-col gap-8">
+					<Heading
+						title="Add a photo of your place"
+						subTitle="Show guests what your place looks like!"
+					/>
+					<ImageUpload />
 				</div>
 			{/if}
 		</div>
