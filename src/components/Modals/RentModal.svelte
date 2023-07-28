@@ -18,6 +18,7 @@
 	import CategoryInput from '../Inputs/CategoryInput.svelte';
 	import CountrySelect from '../Inputs/CountrySelect.svelte';
 	import type { CountrySelectValue } from '../Inputs/Countries';
+	import Map from '../Map.svelte';
 
 	let isLoading = false;
 
@@ -95,6 +96,9 @@
 				<div class="flex flex-col gap-8">
 					<Heading title="Where's your place located?" subTitle="Help guests find you!" />
 					<CountrySelect bind:value={$form.location} />
+					{#if $form.location}
+						<Map center={$form.location.latlng} />
+					{/if}
 				</div>
 			{/if}
 		</div>
