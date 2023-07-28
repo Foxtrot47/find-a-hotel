@@ -12,7 +12,6 @@
 		showChevron={true}
 		bind:value
 		placeholder="Anywhere"
-		class="py-3"
 		containerStyles="padding-top: 0.75rem; padding-bottom: 0.75rem; display: flex;  align-items: center; justify-content: center;"
 	>
 		<div slot="selection" let:selection>
