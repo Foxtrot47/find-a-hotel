@@ -19,6 +19,7 @@
 	import CountrySelect from '../Inputs/CountrySelect.svelte';
 	import type { CountrySelectValue } from '../Inputs/Countries';
 	import Map from '../Map.svelte';
+	import Counter from '../Inputs/Counter.svelte';
 
 	let isLoading = false;
 
@@ -99,6 +100,28 @@
 					{#if $form.location}
 						<Map center={$form.location.latlng} />
 					{/if}
+				</div>
+			{:else if currenStep === STEPS.INFO}
+				<div class="flex flex-col gap-8">
+					<Heading
+						title="Share some basics about your place"
+						subTitle="What amenities do you have?"
+					/>
+					<Counter
+						title="Guests"
+						subTitle="How many guests do you allow?"
+						bind:value={$form.guestCount}
+					/>
+					<Counter
+						title="Rooms"
+						subTitle="How many rooms do you have?"
+						bind:value={$form.roomCount}
+					/>
+					<Counter
+						title="Bathrooms"
+						subTitle="How many bathrooms do you have?"
+						bind:value={$form.bathroomCount}
+					/>
 				</div>
 			{/if}
 		</div>
