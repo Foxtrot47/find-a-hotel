@@ -61,5 +61,17 @@ export const handle = SvelteKitAuth({
 	session: {
 		strategy: 'jwt'
 	},
-	secret: process.env.NEXTAUTH_SECRET
+	secret: process.env.NEXTAUTH_SECRET,
+	callbacks: {
+		async session({ session, token, user }) {
+			session.id = token.id ;
+			return session;
+		},
+		async jwt({ token, user }) {
+			if (user) {
+				token.id  = user.id;
+			}
+			return token;
+		},
+	}
 });
