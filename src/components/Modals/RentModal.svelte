@@ -49,7 +49,12 @@
 			title: '',
 			description: ''
 		},
-		onSubmit: async (data) => {}
+		onSubmit: async (data) => {
+			if (currenStep !== STEPS.PRICE) {
+				return onNext();
+			}
+			isLoading = true;
+		}
 	});
 	const openRegisterModal = () => {
 		RentModalOpened.set(false);
@@ -70,7 +75,7 @@
 		disabled={isLoading}
 		isOpen={$RentModalOpened}
 		onClose={RentModalClosed}
-		onSubmit={onNext}
+		onSubmit={handleSubmit}
 		{secondaryActionLabel}
 		secondaryAction={currenStep === STEPS.CATEGORY ? undefined : onBack}
 		title="Airbnb your home!"
@@ -130,7 +135,46 @@
 						title="Add a photo of your place"
 						subTitle="Show guests what your place looks like!"
 					/>
-					<ImageUpload />
+					<ImageUpload bind:imageUrl={$form.imageSrc} />
+				</div>
+			{:else if currenStep == STEPS.DESCRIPTION}
+				<div class="flex flex-col gap-8">
+					<Heading
+						title="How would you descibe your place?"
+						subTitle="Short and sweet works best!"
+					/>
+
+					<Input
+						id="title"
+						label="Title"
+						disabled={isLoading}
+						required
+						bind:value={$form.title}
+						error={$errors.title}
+					/>
+					<hr />
+
+					<Input
+						id="description"
+						label="Description"
+						disabled={isLoading}
+						required
+						bind:value={$form.description}
+						error={$errors.description}
+					/>
+				</div>
+			{:else if currenStep == STEPS.PRICE}
+				<div class="flex flex-col gap-8">
+					<Heading title="Now, set your price" subTitle="How much do you charge per night?" />
+					<Input
+						id="price"
+						label="price"
+						formatPrice={true}
+						type="number"
+						disabled={isLoading}
+						required
+						bind:value={$form.price}
+					/>
 				</div>
 			{/if}
 		</div>
