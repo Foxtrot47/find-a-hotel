@@ -7,7 +7,7 @@
 	export let disabled = false;
 	export let formatPrice = false;
 	export let required = false;
-	export let value: string;
+	export let value: string | number;
 	export let error = '';
 
 	const handleInput = (e: Event) => {
