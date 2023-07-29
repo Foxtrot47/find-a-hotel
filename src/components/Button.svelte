@@ -6,9 +6,11 @@
 	export let outline = false;
 	export let small = false;
 	export let icon: string = '';
+	export let type: 'button' | 'submit' | 'reset' = 'button';
 </script>
 
 <button
+	{type}
 	{disabled}
 	on:click={onClick}
 	class={`relative flex w-full justify-center rounded-lg transition hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70
