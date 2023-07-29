@@ -71,6 +71,7 @@
 						<div class="flex w-full flex-row items-center gap-4">
 							{#if secondaryActionLabel}
 								<Button
+									type="button"
 									{disabled}
 									label={secondaryActionLabel}
 									outline

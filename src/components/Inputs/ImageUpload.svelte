@@ -57,14 +57,11 @@
 		on:change={() => getBase64(files[0])}
 	/>
 	<button
+		type="button"
 		on:click={() => fileInput.click()}
 		class="relative flex h-64 w-full cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed border-neutral-300 p-2 text-neutral-600 transition hover:opacity-70"
 	>
-		<progress
-			class={`z-10 text-rose-400 ${!uploading && 'hidden'}`}
-			value={progress}
-			max="100"
-		/>
+		<progress class={`z-10 text-rose-400 ${!uploading && 'hidden'}`} value={progress} max="100" />
 		<Icon icon="tabler:photo-plus" class="h-12 w-12" />
 		<div class="text-lg font-semibold">Click to upload</div>
 		{#if imageUrl}

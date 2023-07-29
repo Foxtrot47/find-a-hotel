@@ -100,12 +100,14 @@
 		<div class="mt-3 flex flex-col gap-4" slot="footer">
 			<hr />
 			<Button
+				type="button"
 				outline
 				label="Continue with Google"
 				icon="devicon:google"
 				onClick={() => signIn('google')}
 			/>
 			<Button
+				type="button"
 				outline
 				label="Continue with Github"
 				icon="devicon:github"
@@ -115,6 +117,7 @@
 				<div class="flex flex-row items-center justify-center gap-2">
 					<div>First time using Airbnb?</div>
 					<button
+						type="button"
 						class="cursor-pointer text-neutral-800 hover:underline"
 						on:click={openRegisterModal}>Create an account</button
 					>

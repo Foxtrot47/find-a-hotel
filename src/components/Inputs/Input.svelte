@@ -10,8 +10,11 @@
 	export let value: string | number;
 	export let error = '';
 
+	let internalValue = value;
+	
 	const handleInput = (e: Event) => {
-		value = (e.target as HTMLInputElement).value;
+		internalValue = (e.target as HTMLInputElement).value;
+		value = internalValue;
 	};
 </script>
 

@@ -37,7 +37,7 @@
 	function RentModalClosed() {
 		RentModalOpened.set(false);
 	}
-	const { form, errors, handleSubmit } = createForm({
+	const { form, errors, handleReset, handleSubmit } = createForm({
 		initialValues: {
 			category: '',
 			location: null,
@@ -54,6 +54,30 @@
 				return onNext();
 			}
 			isLoading = true;
+
+			const response = await fetch("/api/listings", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+			if (response.ok) {
+				toasts.add({
+					title: "Listing created!",
+					description: "Listing Created!",
+					type: "success",
+				});
+				handleReset();
+				RentModalOpened.set(false);
+			} else {
+				toasts.add({
+					title: "Error!",
+					description: "Something went wrong!",
+					type: "error",
+				});
+			}
+			isLoading = false;
 		}
 	});
 	const openRegisterModal = () => {
