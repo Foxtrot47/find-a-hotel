@@ -7,7 +7,6 @@ const countriesList = countries.map((country) => ({
 	region: country.region
 }));
 const getByValue = (value: string) => {
-	console.log(value);
 	return countriesList.find((country) => country.value === value);
 };
 
