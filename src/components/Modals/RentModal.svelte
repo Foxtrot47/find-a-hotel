@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { invalidateAll } from '$app/navigation';
 	import Icon from '@iconify/svelte';
 	import { createForm } from 'svelte-forms-lib';
 	import * as yup from 'yup';
@@ -55,26 +55,27 @@
 			}
 			isLoading = true;
 
-			const response = await fetch("/api/listings", {
-				method: "POST",
+			const response = await fetch('/api/listings', {
+				method: 'POST',
 				headers: {
-					"Content-Type": "application/json",
+					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify(data),
+				body: JSON.stringify(data)
 			});
 			if (response.ok) {
 				toasts.add({
-					title: "Listing created!",
-					description: "Listing Created!",
-					type: "success",
+					title: 'Listing created!',
+					description: 'Listing Created!',
+					type: 'success'
 				});
 				handleReset();
 				RentModalOpened.set(false);
+				await invalidateAll();
 			} else {
 				toasts.add({
-					title: "Error!",
-					description: "Something went wrong!",
-					type: "error",
+					title: 'Error!',
+					description: 'Something went wrong!',
+					type: 'error'
 				});
 			}
 			isLoading = false;
