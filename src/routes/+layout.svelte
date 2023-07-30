@@ -20,4 +20,6 @@
 <RegisterModal />
 <RentModal />
 <Navbar currentUser={data.currentUser} />
-<slot />
+<div class="pb-20 pt-28">
+	<slot />
+</div>
