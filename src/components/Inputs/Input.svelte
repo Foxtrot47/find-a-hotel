@@ -11,7 +11,7 @@
 	export let error = '';
 
 	let internalValue = value;
-	
+
 	const handleInput = (e: Event) => {
 		internalValue = (e.target as HTMLInputElement).value;
 		value = internalValue;

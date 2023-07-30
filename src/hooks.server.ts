@@ -64,14 +64,14 @@ export const handle = SvelteKitAuth({
 	secret: process.env.NEXTAUTH_SECRET,
 	callbacks: {
 		async session({ session, token, user }) {
-			session.id = token.id ;
+			session.id = token.id;
 			return session;
 		},
 		async jwt({ token, user }) {
 			if (user) {
-				token.id  = user.id;
+				token.id = user.id;
 			}
 			return token;
-		},
+		}
 	}
 });
