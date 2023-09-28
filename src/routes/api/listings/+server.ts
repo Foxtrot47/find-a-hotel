@@ -2,6 +2,28 @@ import prisma from '$lib/prisma';
 import type { RequestEvent, RequestHandler } from './$types';
 import { error, json } from '@sveltejs/kit';
 
+export const GET: RequestHandler = async ({ url }) => {
+	const listingid = url.searchParams.get('listingid');
+
+	if (!listingid || typeof listingid !== 'string') {
+		throw error(400, 'listingid required');
+	}
+
+	const listing = await prisma.listing.findUnique({
+		where: {
+			id: listingid
+		},
+		include: {
+			user: true
+		}
+	});
+	if (!listing) {
+		error(404, 'Not Found');
+	}
+
+	return json(listing);
+};
+
 export const POST: RequestHandler = async (requestEvent: RequestEvent) => {
 	const session = await requestEvent.locals.getSession();
 

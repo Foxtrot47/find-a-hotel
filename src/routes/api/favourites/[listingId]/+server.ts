@@ -23,12 +23,12 @@ export const POST: RequestHandler = async (requestEvent: RequestEvent) => {
 		throw error(401, 'Unauthorized');
 	}
 	const userData = await currentUser;
-	if(userData == undefined) {
+	if (userData == undefined) {
 		throw error(401, 'user credentials missing');
 	}
 	const favouriteIds = [...(userData.favouriteIds || [])];
 	favouriteIds.push(listingId);
-	
+
 	const user = await prisma.user.update({
 		where: {
 			email: session.user.email
@@ -61,7 +61,7 @@ export const DELETE: RequestHandler = async (requestEvent: RequestEvent) => {
 		throw error(401, 'Unauthorized');
 	}
 	const userData = await currentUser;
-	if(userData == undefined) {
+	if (userData == undefined) {
 		throw error(401, 'user credentials missing');
 	}
 	let favouriteIds = [...(userData.favouriteIds || [])];

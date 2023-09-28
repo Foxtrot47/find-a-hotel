@@ -53,6 +53,7 @@
 		"svelte-forms-lib": "^2.0.1",
 		"svelte-select": "^5.6.1",
 		"svelte-toasts": "^1.1.2",
+		"svelty-picker": "^4.1.4",
 		"world-countries": "^4.0.0",
 		"yup": "^1.2.0"
 	}

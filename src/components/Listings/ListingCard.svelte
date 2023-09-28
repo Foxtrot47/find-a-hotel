@@ -29,7 +29,10 @@
 	};
 </script>
 
-<button class="group col-span-1 cursor-pointer">
+<button
+	on:click={() => (window.location.href = `/listings/${data.id}`)}
+	class="group col-span-1 cursor-pointer"
+>
 	<div class="flex w-full flex-col gap-2">
 		<div class="relative aspect-square w-full overflow-hidden rounded-xl">
 			<img
