@@ -7,7 +7,11 @@ export const GET: RequestHandler = async ({ url }) => {
 	const userId = url.searchParams.get('userId');
 	const authorId = url.searchParams.get('authorId');
 
-	const query: any = {};
+	const query: {
+		listingId?: string;
+		userId?: string;
+		authorId?: string;
+	} = {};
 
 	if (listingId) {
 		query.listingId = listingId;
@@ -64,4 +68,32 @@ export const POST: RequestHandler = async (event: RequestEvent) => {
 	});
 
 	return json(listingAndReservation);
+};
+
+export const DELETE: RequestHandler = async ({ locals, url }) => {
+	const session = await locals.getSession();
+
+	if (!session?.user?.email) {
+		throw error(401, 'Unauthorized');
+	}
+	const reservationId  = url.searchParams.get('reservationId');
+
+	if (!reservationId  || typeof reservationId  !== 'string') {
+		throw new Error('Invalid ID');
+	  }
+
+	  const reservations = await prisma.reservation.deleteMany({
+		where: {
+		  id: reservationId,
+		  OR: [
+			{ userId: session.id },
+			{ listing: { userId: session.id } }
+		  ]
+		}
+	  });
+
+	if (!reservations) {
+		throw error(404, 'Not Found');
+	}
+	return json(reservations);
 };

@@ -4,6 +4,7 @@
 	import { getByValue } from '../Inputs/Countries';
 	import HeartButton from '../HeartButton.svelte';
 	import Button from '../Button.svelte';
+	import { goto } from '$app/navigation';
 
 	export let data: Listing;
 	export let reservation: Reservation | null;
@@ -29,8 +30,15 @@
 	};
 </script>
 
-<button
-	on:click={() => (window.location.href = `/listings/${data.id}`)}
+<div
+	on:click={() => (goto(`/listings/${data.id}`))}
+	on:keydown={(e) => {
+		if (e.key === 'Enter') {
+			goto(`/listings/${data.id}`);
+		}
+	}}
+	role="button"
+	tabindex="0"
 	class="group col-span-1 cursor-pointer"
 >
 	<div class="flex w-full flex-col gap-2">
@@ -38,13 +46,13 @@
 			<img
 				src={data.imageSrc}
 				alt="Listing"
-				class="h-full w-full object-cover transition group-hover:scale-110"
+				class="w-full h-72 object-cover transition group-hover:scale-110 rounded-lg"
 			/>
 			<div class="absolute right-3 top-3">
 				<HeartButton listingId={data.id} {userId} />
 			</div>
 		</div>
-		<div class="text-lg font-semibold">
+		<div class="text-lg font-semibold truncate">
 			{location?.region}, {location?.label}
 		</div>
 		<div class="font-light text-neutral-500">
@@ -57,9 +65,9 @@
 			{#if !reservation}
 				<div class="font-light">night</div>
 			{/if}
-			{#if actionLabel}
-				<Button {disabled} small label={actionLabel} onClick={handleCancel} />
-			{/if}
 		</div>
+		{#if actionLabel}
+		<Button {disabled} small label={actionLabel} onClick={handleCancel} />
+	{/if}
 	</div>
-</button>
+</div>
