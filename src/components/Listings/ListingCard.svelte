@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { Listing, Reservation } from '@prisma/client';
 	import { format } from 'date-fns';
-	import { getByValue } from '../Inputs/Countries';
-	import HeartButton from '../HeartButton.svelte';
-	import Button from '../Button.svelte';
+	import { getByValue } from '$components/Inputs/Countries';
+	import HeartButton from '$components/HeartButton.svelte';
+	import Button from '$components/Button.svelte';
 	import { goto } from '$app/navigation';
 
 	export let data: Listing;

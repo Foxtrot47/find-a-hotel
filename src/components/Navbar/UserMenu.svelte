@@ -2,7 +2,7 @@
 	import type { User } from '@prisma/client';
 
 	import Icon from '@iconify/svelte';
-	import Avatar from '../Avatar.svelte';
+	import Avatar from '$components/Avatar.svelte';
 	import MenuItem from './MenuItem.svelte';
 	import { LoginModalOpened, RegisterModalOpened, RentModalOpened } from '../../stores';
 	import { signOut } from '@auth/sveltekit/client';

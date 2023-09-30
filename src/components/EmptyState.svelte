@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Button from './Button.svelte';
-	import Heading from './Heading.svelte';
+	import Button from '$components/Button.svelte';
+	import Heading from '$components/Heading.svelte';
 
 	export let title = 'No exact matches';
 	export let subTitle = 'Try changing or removing some of your filters.';

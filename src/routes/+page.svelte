@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import Container from '../components/Container.svelte';
-	import EmptyState from '../components/EmptyState.svelte';
-	import ListingCard from '../components/Listings/ListingCard.svelte';
+	import Container from '$components/Container.svelte';
+	import EmptyState from '$components/EmptyState.svelte';
+	import ListingCard from '$components/Listings/ListingCard.svelte';
 	import { format } from 'date-fns';
 	import { FavouriteIds } from '../stores';
 

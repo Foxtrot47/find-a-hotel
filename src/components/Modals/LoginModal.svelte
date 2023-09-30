@@ -8,10 +8,10 @@
 	import { signIn } from '@auth/sveltekit/client';
 
 	import Modal from './Modal.svelte';
-	import Heading from '../Heading.svelte';
-	import Input from '../Inputs/Input.svelte';
+	import Heading from '$components/Heading.svelte';
+	import Input from '$components/Inputs/Input.svelte';
 	import { LoginModalOpened, RegisterModalOpened } from '../../stores/index';
-	import Button from '../Button.svelte';
+	import Button from '$components/Button.svelte';
 	import RegisterModal from './RegisterModal.svelte';
 
 	let isLoading = false;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import Button from '../Button.svelte';
+	import Button from '$components/Button.svelte';
 
 	export let isOpen = false;
 	export let onClose: () => void;

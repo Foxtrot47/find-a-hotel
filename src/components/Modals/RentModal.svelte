@@ -8,19 +8,19 @@
 	import { signIn } from '@auth/sveltekit/client';
 
 	import Modal from './Modal.svelte';
-	import Heading from '../Heading.svelte';
-	import Input from '../Inputs/Input.svelte';
+	import Heading from '$components/Heading.svelte';
+	import Input from '$components/Inputs/Input.svelte';
 	import { RentModalOpened } from '../../stores/index';
-	import Button from '../Button.svelte';
+	import Button from '$components/Button.svelte';
 	import RegisterModal from './RegisterModal.svelte';
-	import { categoriesList } from '../Navbar/Categories';
-	import type { Category } from '../Navbar/Categories';
-	import CategoryInput from '../Inputs/CategoryInput.svelte';
-	import CountrySelect from '../Inputs/CountrySelect.svelte';
-	import type { CountrySelectValue } from '../Inputs/Countries';
-	import Map from '../Map.svelte';
-	import Counter from '../Inputs/Counter.svelte';
-	import ImageUpload from '../Inputs/ImageUpload.svelte';
+	import { categoriesList } from '$components/Navbar/Categories';
+	import type { Category } from '$components/Navbar/Categories';
+	import CategoryInput from '$components/Inputs/CategoryInput.svelte';
+	import CountrySelect from '$components/Inputs/CountrySelect.svelte';
+	import type { CountrySelectValue } from '$components/Inputs/Countries';
+	import Map from '$components/Map.svelte';
+	import Counter from '$components/Inputs/Counter.svelte';
+	import ImageUpload from '$components/Inputs/ImageUpload.svelte';
 
 	let isLoading = false;
 

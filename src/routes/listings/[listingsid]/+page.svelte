@@ -2,15 +2,15 @@
 	import type { PageData } from './$types';
 	import SveltyPicker from 'svelty-picker';
 	import { parseISO } from 'date-fns';
-	import type { Listing, Reservation, User } from '@prisma/client';
-	import { categoriesList } from '../../../components/Navbar/Categories';
-	import Container from '../../../components/Container.svelte';
-	import { getByValue } from '../../../components/Inputs/Countries';
-	import Heading from '../../../components/Heading.svelte';
-	import HeartButton from '../../../components/HeartButton.svelte';
-	import Avatar from '../../../components/Avatar.svelte';
 	import Icon from '@iconify/svelte';
-	import Map from '../../../components/Map.svelte';
+	import type { Listing, Reservation, User } from '@prisma/client';
+	import { categoriesList } from '$components/Navbar/Categories';
+	import Container from '$components/Container.svelte';
+	import { getByValue } from '$components/Inputs/Countries';
+	import Heading from '$components/Heading.svelte';
+	import HeartButton from '$components/HeartButton.svelte';
+	import Avatar from '$components/Avatar.svelte';
+	import Map from '$components/Map.svelte';
 	import { LoginModalOpened } from '../../../stores';
 
 	import Button from '../../../components/Button.svelte';
