@@ -2,26 +2,33 @@ import { json, error } from '@sveltejs/kit';
 import type { RequestEvent, RequestHandler } from './$types';
 import prisma from '$lib/prisma';
 
-export const GET: RequestHandler = async ({ url }) => {
+export const GET: RequestHandler = async ({ url, locals }) => {
 	const listingId = url.searchParams.get('listingId');
-	const userId = url.searchParams.get('userId');
 	const authorId = url.searchParams.get('authorId');
+	const session = await locals.getSession();
+
+	if (!session?.user?.email) {
+		throw error(401, 'Unauthorized');
+	}
 
 	const query: {
 		listingId?: string;
 		userId?: string;
-		authorId?: string;
+		listing?: {
+			userId: string;
+		};
 	} = {};
 
 	if (listingId) {
 		query.listingId = listingId;
 	}
-	if (userId) {
-		query.userId = userId;
-	}
 	if (authorId) {
-		query.authorId = authorId;
+		query.listing = { userId: authorId };
 	}
+	else {
+		query.userId = session.id;
+	}
+
 	const reservations = await prisma.reservation.findMany({
 		where: query,
 		include: {

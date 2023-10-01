@@ -8,7 +8,7 @@ export const load: PageLoad = async ({ parent, fetch }) => {
         goto("/");
     }
 
-    const reservationsFetch = await fetch(`/api/reservations?userId: ${currentUser.id}`);
+    const reservationsFetch = await fetch(`/api/reservations?userId=${currentUser.id}`);
     const reservations = await reservationsFetch.json();
 
 	return { currentUser, reservations};
