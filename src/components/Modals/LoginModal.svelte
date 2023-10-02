@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { goto, invalidateAll } from '$app/navigation';
 	import Icon from '@iconify/svelte';
 	import { createForm } from 'svelte-forms-lib';
 	import * as yup from 'yup';
@@ -57,7 +57,7 @@
 					duration: 5000
 				});
 				LoginClosed();
-				goto('/');
+				invalidateAll();
 			}
 		}
 	});
