@@ -7,13 +7,10 @@ export const load: PageLoad = async ({ fetch, parent }) => {
         
     const { currentUser } = await parent();
     if (!currentUser) {
-        toasts.add({
-            title: 'Unauthorized',
-            description: 'Please login to view your reservations.',
-            type: 'error',
-            duration: 5000
-        });
-        throw new Error("Not logged in");
+        return {
+            reservations: null,
+            error: true
+        }
     }
         
 	const reservationsRes = await fetch(`/api/reservations?authorId=${currentUser.id}`);

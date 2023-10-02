@@ -14,8 +14,7 @@
 
 {#if data.currentUser == null || data.listings == null}
 	<EmptyState title="Unauthorized" subTitle="Please login to continue" />
-{/if}
-{#if data.listings !== null && data.listings.length > 0}
+{:else if data.listings !== null && data.listings.length > 0}
 	<Container>
 		<Heading title="Favorites" subTitle="List of places you favorited!" />
 		<div

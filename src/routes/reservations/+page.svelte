@@ -25,8 +25,7 @@
 
 {#if data.currentUser == null || data.reservations == null}
 	<EmptyState title="Unauthorized" subTitle="Please login to continue" />
-{/if}
-{#if data.reservations.length > 0}
+{:else if data.reservations.length > 0}
 	<Container>
 		<Heading title="Reservations" subTitle="Bookings on your properties" />
 		<div
