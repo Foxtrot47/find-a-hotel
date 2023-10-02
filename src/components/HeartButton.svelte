@@ -46,7 +46,7 @@
 	};
 </script>
 
-<button class="relative cursor-pointer transition hover:opacity-80" on:click={toggleFavourite}>
+<button aria-label="Favourite" class="relative cursor-pointer transition hover:opacity-80" on:click={toggleFavourite}>
 	<Icon
 		icon="ant-design:heart-outlined"
 		class="absolute -right-[2px] -top-[2px] h-7 w-7 text-white"
