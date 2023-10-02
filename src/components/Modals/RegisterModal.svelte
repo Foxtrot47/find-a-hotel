@@ -40,6 +40,13 @@
 				if (apiResponse.ok === false) {
 					throw new Error();
 				}
+				toasts.add({
+					title: 'Success',
+					description: 'Registered successfully',
+					type: 'success',
+					duration: 5000
+				});
+				openLoginModal();
 			} catch (e) {
 				toasts.add({
 					title: 'Error occured',
