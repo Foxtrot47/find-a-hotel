@@ -55,6 +55,7 @@
 					<!-- Header -->
 					<div class="relative flex items-center justify-center rounded-t border-b-[1px] p-6">
 						<button
+							type="button"
 							class="absolute left-9 border-0 p-1 transition hover:opacity-70"
 							on:click={handleClose}
 						>
