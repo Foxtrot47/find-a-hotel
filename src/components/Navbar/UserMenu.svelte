@@ -6,6 +6,7 @@
 	import MenuItem from './MenuItem.svelte';
 	import { LoginModalOpened, RegisterModalOpened, RentModalOpened } from '../../stores';
 	import { signOut } from '@auth/sveltekit/client';
+	import { goto } from '$app/navigation';
 
 	export let currentUser: User | null = null;
 	let isOpen = false;
@@ -59,11 +60,11 @@
 				</div>
 			{:else}
 				<div class="flex cursor-pointer flex-col">
-					<MenuItem onClick={() => {}} label="My trips" />
-					<MenuItem onClick={() => {}} label="My favourites" />
-					<MenuItem onClick={() => {}} label="My reservations" />
-					<MenuItem onClick={() => {}} label="My properties" />
-					<MenuItem onClick={() => {}} label="Airbnb my home" />
+					<MenuItem onClick={() => {goto("/trips")}} label="My trips" />
+					<MenuItem onClick={() => {goto("/favourites")}} label="My favourites" />
+					<MenuItem onClick={() => {goto("/reservations")}} label="My reservations" />
+					<MenuItem onClick={() => {goto("/properties")}} label="My properties" />
+					<MenuItem onClick={onRent} label="Airbnb my home" />
 					<hr />
 					<MenuItem onClick={signOut} label="Logout" />
 				</div>
