@@ -35,6 +35,7 @@
 	$: currenStep = STEPS.CATEGORY;
 
 	function RentModalClosed() {
+		currenStep = STEPS.CATEGORY;
 		RentModalOpened.set(false);
 	}
 	const { form, errors, handleReset, handleSubmit } = createForm({
