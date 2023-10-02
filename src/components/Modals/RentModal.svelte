@@ -55,7 +55,7 @@
 			}
 			isLoading = true;
 
-			const response = await fetch('/api/listings', {
+			const response = await fetch('/api/listing', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'

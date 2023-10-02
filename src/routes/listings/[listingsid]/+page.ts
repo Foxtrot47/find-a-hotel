@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params, fetch }) => {
 	const listingsid = params.listingsid;
-	const listingsRes = await fetch(`/api/listings?listingid=${listingsid}`);
+	const listingsRes = await fetch(`/api/listing?listingid=${listingsid}`);
 	const listings = await listingsRes.json();
 	if (!listingsRes.ok) {
 		location.href = '/404';
