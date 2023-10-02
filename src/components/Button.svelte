@@ -7,9 +7,12 @@
 	export let small = false;
 	export let icon: string = '';
 	export let type: 'button' | 'submit' | 'reset' = 'button';
+	export let autofocus: true | false = false;
 </script>
 
+<!-- svelte-ignore a11y-autofocus -->
 <button
+	autofocus={autofocus}
 	{type}
 	{disabled}
 	on:click={onClick}

@@ -78,7 +78,7 @@
 									onClick={handleSecondaryAction}
 								/>
 							{/if}
-							<Button type="submit" {disabled} label={actionLabel} onClick={handleSubmit} />
+							<Button autofocus={true} type="submit" {disabled} label={actionLabel} onClick={handleSubmit} />
 						</div>
 						<slot name="footer" />
 					</div>
