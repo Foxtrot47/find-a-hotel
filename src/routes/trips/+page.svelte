@@ -9,18 +9,19 @@
 
 	export let data: PageData;
 
-    const onCancel = async (id: string) => {
-        deletingId = id;
-		const deleteResponse = await fetch(`/api/reservations?reservationId=${id}`, { method: 'DELETE' })
+	const onCancel = async (id: string) => {
+		deletingId = id;
+		const deleteResponse = await fetch(`/api/reservations?reservationId=${id}`, {
+			method: 'DELETE'
+		});
 
 		if (!deleteResponse.ok) {
-			deletingId = "";
+			deletingId = '';
 			return;
 		}
 		invalidateAll();
-		
-    }
-    let deletingId = "";
+	};
+	let deletingId = '';
 </script>
 
 {#if data.reservations.length <= 0}
@@ -37,13 +38,18 @@
 				<ListingCard
 					key={reservation.id}
 					data={reservation.listing}
-                    reservation={reservation}
-                    actionId={reservation.id}
-                    onAction={onCancel}
-                    disabled={deletingId === reservation.id}
-                    actionLabel="Cancel reservation"
+					{reservation}
+					actionId={reservation.id}
+					onAction={onCancel}
+					disabled={deletingId === reservation.id}
+					actionLabel="Cancel reservation"
 				/>
 			{/each}
 		</div>
 	</Container>
 {/if}
+
+<svelte:head>
+	<title>My Trips - Airbnb</title>
+	<meta name="description" content="This page shows all the trips that you have planned." />
+</svelte:head>

@@ -48,3 +48,8 @@
 {:else}
 	<EmptyState title="No reservations found" subTitle="Looks like you have no reservations on your properties." />
 {/if}
+
+<svelte:head>
+    <title>My Reservations - Airbnb</title> 
+	<meta name="description" content="This page shows all the guest reservations on your property." />
+</svelte:head>

@@ -32,3 +32,8 @@
 {:else}
     <EmptyState title="No favourites found" subTitle="Looks like you have no favourites listings."/>
 {/if}
+
+<svelte:head>
+    <title>My favourites - Airbnb</title> 
+	<meta name="description" content="This page shows all the listings that you have favourited." />
+</svelte:head>

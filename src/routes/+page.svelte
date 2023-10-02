@@ -27,3 +27,11 @@
 		</div>
 	</Container>
 {/if}
+
+<svelte:head>
+	<title>Holiday Homes & Apartment Rentals - Airbnb</title>
+	<meta
+		name="description"
+		content="Airbnb home page. Here you can see thousands of listings people have created."
+	/>
+</svelte:head>

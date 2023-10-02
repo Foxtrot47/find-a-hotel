@@ -177,3 +177,10 @@
 		</div>
 	</div>
 </Container>
+
+<svelte:head>
+	{#if listing}
+		<title>{listing.title} - Airbnb</title>
+		<meta name="description" content={listing.description} />
+	{/if}
+</svelte:head>
