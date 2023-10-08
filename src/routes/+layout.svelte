@@ -9,6 +9,7 @@
 	import LoginModal from '$components/Modals/LoginModal.svelte';
 	import type { PageData } from './$types';
 	import RentModal from '$components/Modals/RentModal.svelte';
+	import SearchModal from '$components/Modals/SearchModal.svelte';
 
 	export let data: PageData;
 </script>
@@ -18,6 +19,7 @@
 </ToastContainer>
 <LoginModal />
 <RegisterModal />
+<SearchModal queryParams={data.params} />
 <RentModal />
 <Navbar currentUser={data.currentUser} />
 <div class="pb-20 pt-28">

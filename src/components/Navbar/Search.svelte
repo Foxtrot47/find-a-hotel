@@ -1,8 +1,17 @@
 <script>
 	import Icon from '@iconify/svelte';
+	import { SearchModalOpened } from '../../stores';
 </script>
 
 <div
+	on:click={() => SearchModalOpened.set(true)}
+	on:keydown={(e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			SearchModalOpened.set(true);
+		}
+	}}
+	role="button"
+	tabindex="0"
 	class="w-full cursor-pointer rounded-full border-[1px] py-2 shadow-sm transition hover:shadow-md md:w-auto"
 >
 	<div class="flex flex-row items-center justify-between">
